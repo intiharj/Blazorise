@@ -43,7 +43,9 @@ Include CSS link into your `index.html` or `_Host.cshtml` file, depending if you
 A basic TreeView that aims to reproduce standard tree-view behavior.
 
 ```html
- <TreeView Nodes="Items"
+ <TreeView 
+    TNode="Item"
+    Nodes="Items"
     GetChildNodes="@(item => item.Children)"
     HasChildNodes="@(item => item.Children?.Any() == true)"
     @bind-SelectedNode="selectedNode"
@@ -98,3 +100,4 @@ A basic TreeView that aims to reproduce standard tree-view behavior.
 | ExpandedNodeChanged   | event                                                                                    |              | Occurs when the collection of expanded nodes has changed.                                    |
 | GetChildNodes         | expression                                                                               |              | Expression  that allows the child nodes to be identifies for a particular node               |
 | HasChildNodes         | expression                                                                               | true         | Expression that indicates whether the current node has any children nodes?                   |
+| TNode                 | generic type                                                                             |              | Specifies the type of the nodes in the Nodes collection.  Required when using the SelectedNodeChanged event.|
